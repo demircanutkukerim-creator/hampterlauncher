@@ -11,6 +11,11 @@
   "build": {
     "appId": "com.hamptercinw.client",
     "productName": "HampterClient",
+    "files": [
+      "main.js",
+      "index.html",
+      "package.json"
+    ],
     "win": {
       "target": "portable"
     }
