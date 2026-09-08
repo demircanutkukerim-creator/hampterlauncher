@@ -1,7 +1,8 @@
 const { app, BrowserWindow } = require('electron');
 const DiscordRPC = require('discord-rpc');
+const path = require('path');
 
-const ClientId = '111111111111111111';
+const ClientId = '111111111111111111'; // İstersen kendi Discord Bot ID'ni koyabilirsin
 DiscordRPC.register(ClientId);
 const rpc = new DiscordRPC.Client({ transport: 'ipc' });
 
@@ -9,10 +10,14 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 1000,
     height: 600,
-    title: "HampterClient"
+    title: "HampterClient",
+    autoHideMenuBar: true, // Üstteki File Edit menüsünü gizler
+    webPreferences: {
+      nodeIntegration: true
+    }
   });
 
-  win.loadURL('https://mclauncher.com');
+  win.loadFile('index.html');
 }
 
 rpc.on('ready', () => {
