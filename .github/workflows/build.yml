@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: 18
       - run: npm install
-      - run: npx electron-builder --win
+      - run: npm run dist
       - uses: actions/upload-artifact@v4
         with:
           name: HampterLauncher-EXE
